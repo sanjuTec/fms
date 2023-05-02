@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>New Flight Add</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	
+<style>
+		body {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100vh;
+	}
+	
+	.container {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100%;
+	}
+	.title {
+  		margin-bottom: 20px;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="title">Create Flight Details</h1>
+		<div class="row">
+			<form th:action="@{/flight-details}" th:object="${flight}" method="POST">
+				  <div class="form-group">
+					    <label for="flight-name">Flight Name:</label>
+					    <input type="text" class="form-control" id="flight-name" th:field="*{filghtName}" placeholder="Enter flight name">
+				  </div>
+				  <div class="form-group">
+					    <label for="origin-country">Origin Country:</label>
+					    <input type="text" class="form-control" id="origin-country" th:field="*{originCountry}" placeholder="Enter origin country">
+				  </div>
+				  <div class="form-group">
+					    <label for="destination-country">Destination Country:</label>
+					    <input type="text" class="form-control" id="destination-country" th:field="*{destinationCountry}" placeholder="Enter destination country">
+				  </div>
+  				  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			
+		</div>
+	</div>
+</body>
+</html>
